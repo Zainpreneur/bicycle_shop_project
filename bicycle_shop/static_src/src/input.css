@@ -1,0 +1,48 @@
+/* Neo-morphism utilities */
+.neo-card {
+  @apply bg-white rounded-neo shadow-neo overflow-hidden;
+}
+
+.neo-card:hover {
+  @apply shadow-neo-hover;
+}
+
+.neo-card:active {
+  @apply shadow-neo-active;
+}
+
+.neo-btn {
+  @apply rounded-neo px-4 py-2 text-sm font-medium transition-all duration-200;
+}
+
+.neo-btn-primary {
+  @apply neo-btn bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-400;
+}
+
+.neo-btn-secondary {
+  @apply neo-btn bg-secondary-100 text-secondary-800 hover:bg-secondary-200 active:bg-secondary-300;
+}
+
+.neo-input {
+  @apply rounded-neo border border-gray-200 bg-white px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+}
+
+.neo-label {
+  @apply text-sm font-medium text-gray-700 mb-1 block;
+}
+
+.neo-bg {
+  @apply bg-primary-50 dark:bg-primary-900;
+}
+
+.neo-text-primary {
+  @apply text-primary-600;
+}
+
+.neo-text-secondary {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.neo-border {
+  @apply border-gray-200 dark:border-gray-700;
+}

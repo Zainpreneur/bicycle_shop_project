@@ -1,0 +1,33 @@
+{% extends "repairstore/base.html" %}
+{% block title %}Bicycles{% endblock %}
+{% block content %}
+<h2><i class="fa fa-bicycle me-2"></i> Bicycles</h2>
+<a class="btn btn-primary mb-3" href="{% url 'repairstore:bicycle_create' %}"><i class="fa fa-plus me-2"></i> New Bicycle</a>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Brand/Model</th>
+            <th>Customer</th>
+            <th>Frame Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bicycle in bicycles %}
+        <tr>
+            <td>{{ bicycle.brand }} {{ bicycle.model }}</td>
+            <td>{{ bicycle.customer.name }}</td>
+            <td>{{ bicycle.get_frame_type_display }}</td>
+            <td><span class="badge bg-{{ bicycle.status == 'in_repair'|default:'warning'|lower }}">{{ bicycle.get_status_display }}</span></td>
+            <td>
+                <a class="btn btn-sm btn-outline-primary" href="{% url 'repairstore:bicycle_edit' bicycle.id %}"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-sm btn-outline-danger" href="{% url 'repairstore:bicycle_delete' bicycle.id %}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-center">No bicycles found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
